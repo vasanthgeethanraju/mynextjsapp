@@ -43,6 +43,12 @@ export default function Chatbot({ documentContent }: { documentContent: string }
           value={userInput}
           onChange={(e) => setUserInput(e.target.value)}
           placeholder="Ask something about the document..."
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              handleSend();
+              e.preventDefault();
+            }
+          }}
         />
         <button onClick={handleSend} className="p-2 bg-green-500 text-white">
           Send
